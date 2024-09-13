@@ -1,0 +1,6 @@
+<app-navbar></app-navbar>
+<ng-container *ngIf="isHomeRoute | async">
+ <app-home></app-home>
+</ng-container>
+<router-outlet></router-outlet>
+<app-footer></app-footer>

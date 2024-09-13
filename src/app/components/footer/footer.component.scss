@@ -1,0 +1,29 @@
+/* footer.component.css */
+.app-footer {
+    background-color: #f0f0f0; /* Grey color */
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .app-footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .app-footer p {
+    margin: 0;
+    color: #333; /* Dark grey text */
+    font-size: 14px;
+  }
+/* Add media queries if needed */
+@media (max-width: 768px) {
+    .app-footer p {
+      font-size: 12px;
+    }
+  }
+    

@@ -1,0 +1,58 @@
+.custom-menubar {
+    background-color: #333;
+    border: none;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    .ui-menubar-root-list {
+      display: flex;
+      align-items: center;
+      padding-left: 20px;
+      
+      .ui-menuitem-link {
+        color: white;
+        font-weight: 500;
+        text-transform: uppercase;
+        padding: 0 20px;
+        transition: color 0.3s ease;
+  
+        &:hover {
+          color: #4caf50;
+        }
+  
+        .pi {
+          margin-right: 5px;
+        }
+      }
+    }
+  
+    .logo {
+      display: flex;
+      align-items: center;
+      img {
+        border-radius: 50%;
+        transition: transform 0.3s ease;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  
+    .ui-button {
+      margin-right: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .custom-menubar {
+      .ui-menubar-root-list {
+        flex-direction: column;
+        .ui-menuitem-link {
+          padding: 10px 0;
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,44 @@
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+
+}
+
+.login-container{
+
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    background-color: #f8f9fa;
+    justify-content: center;
+    align-items: center;
+    border: 0.5px solid rgb(223, 220, 220);
+    border-radius: 10px;
+}
+
+
+span{
+    margin-bottom: 30px;
+    width: 450px;
+}
+
+button{
+    width: 450px;
+}
+
+.new-user{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+   
+}
+
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}

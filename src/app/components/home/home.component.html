@@ -1,0 +1,102 @@
+<div class="hero-section">
+    <div class="hero-image">
+      <img src="assets/hero-image.png" alt="Hero Image" />
+    </div>
+    <div class="hero-text">
+      <h1>Welcome to MegaFiles</h1>
+      <p>Here are some features of our platform:</p>
+      <ul>
+        <li>
+          <span class="icon">
+            <i class="pi pi-upload"></i>
+          </span>
+          Effortless file uploads and management
+        </li>
+        <li>
+          <span class="icon">
+            <i class="pi pi-lock"></i>
+          </span>
+          Secure storage with end-to-end encryption
+        </li>
+        <li>
+          <span class="icon">
+            <i class="pi pi-phone"></i>
+          </span>
+          24/7 support for all users
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+
+  <div id="home-files" class="files-section">
+    <h2>Download Files</h2>
+  
+    <div class="centered-tabs">
+      <p-tabView>
+        <!-- Popular Files Tab -->
+        <p-tabPanel header="Popular Files" leftIcon="pi pi-star">
+          <table class="files-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>File Name</th>
+                <th>Uploaded By</th>
+                <th>Download</th>
+                <th>Report</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let file of popularFiles; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ file.name }}</td>
+                <td class="uploaded-by">
+                    <img src="assets/avatar.png" alt="Avatar" class="avatar">
+                    <span class="username">John Doe</span>
+                </td>
+                <td>
+                  <button pButton type="button" icon="pi pi-download" label="Download"></button>
+                </td>
+                <td>
+                  <button pButton type="button" icon="pi pi-exclamation-circle" label="Report" class="p-button-danger"></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </p-tabPanel>
+  
+        <!-- Latest Added Files Tab -->
+        <p-tabPanel header="Latest Added" leftIcon="pi pi-clock">
+          <table class="files-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>File Name</th>
+                <th>Uploaded By</th>
+                <th>Download</th>
+                <th>Report</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let file of latestFiles; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ file.name }}</td>
+                <td class="uploaded-by">
+                    <img src="assets/avatar.png" alt="Avatar" class="avatar">
+                    <span class="username">John Doe</span>
+                </td>
+                <td>
+                  <button pButton type="button" icon="pi pi-download" label="Download"></button>
+                </td>
+                <td>
+                  <button pButton type="button" icon="pi pi-exclamation-circle" label="Report" class="p-button-danger"></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </p-tabPanel>
+      </p-tabView>
+    </div>
+  </div>
+  
+  
