@@ -47,15 +47,19 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let file of popularFiles; let i = index">
+              <tr *ngFor="let pfile of popularFiles; let i = index">
                 <td>{{ i + 1 }}</td>
-                <td>{{ file.name }}</td>
-                <td class="uploaded-by">
-                    <img src="assets/avatar.png" alt="Avatar" class="avatar">
-                    <span class="username">John Doe</span>
+                <td>{{ pfile.filename }}</td>
+                <td class="uploaded-by" style="display: flex;">
+                  <div >
+                    <img src="{{pfile.profilePictureUrl}}" alt="Avatar" class="avatar" width="40px" height="40px" style="border-radius: 50%; margin-right: 10px;">
+                  </div>
+                  <div style="display: flex; justify-content: center; align-items: center;">
+                    <span class="username" >{{pfile.username}}</span>
+                  </div>
                 </td>
                 <td>
-                  <button pButton type="button" icon="pi pi-download" label="Download"></button>
+                  <button pButton type="button" icon="pi pi-download" label="Download" (click)="downloadFile(pfile.fileUrl,pfile.filename,pfile.fileId)"></button>
                 </td>
                 <td>
                   <button pButton type="button" icon="pi pi-exclamation-circle" label="Report" class="p-button-danger"></button>
@@ -80,13 +84,17 @@
             <tbody>
               <tr *ngFor="let file of latestFiles; let i = index">
                 <td>{{ i + 1 }}</td>
-                <td>{{ file.name }}</td>
-                <td class="uploaded-by">
-                    <img src="assets/avatar.png" alt="Avatar" class="avatar">
-                    <span class="username">John Doe</span>
+                <td>{{ file.filename }}</td>
+                <td class="uploaded-by" style="display: flex;">
+                  <div >
+                    <img src="{{file.profilePictureUrl}}" alt="Avatar" class="avatar" width="40px" height="40px" style="border-radius: 50%; margin-right: 10px;">
+                  </div>
+                  <div style="display: flex; justify-content: center; align-items: center;">
+                    <span class="username" >{{file.username}}</span>
+                  </div>
                 </td>
                 <td>
-                  <button pButton type="button" icon="pi pi-download" label="Download"></button>
+                  <button pButton type="button" icon="pi pi-download" label="Download" (click)="downloadFile(file.fileUrl,file.filename,file.fileId)"></button>
                 </td>
                 <td>
                   <button pButton type="button" icon="pi pi-exclamation-circle" label="Report" class="p-button-danger"></button>

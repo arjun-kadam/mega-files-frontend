@@ -12,6 +12,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { PrimeNgModule } from 'src/PrimeNgModule';
+import { HttpClientModule } from  '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PrimeNgModule } from 'src/PrimeNgModule';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    PrimeNgModule
+    PrimeNgModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
