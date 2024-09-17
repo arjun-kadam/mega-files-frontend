@@ -8,6 +8,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DividerModule } from 'primeng/divider';
 import { PasswordModule } from 'primeng/password';
 import { RippleModule } from 'primeng/ripple';
+import { ToastModule } from 'primeng/toast';
+import { MessagesModule } from 'primeng/messages';
 
 @NgModule({
   exports: [
@@ -20,6 +22,8 @@ import { RippleModule } from 'primeng/ripple';
     DividerModule,
     PasswordModule,
     RippleModule,
+    ToastModule,
+    MessagesModule
   ],
 })
 export class PrimeNgModule {}

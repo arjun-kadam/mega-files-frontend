@@ -13,6 +13,7 @@ import { SignupComponent } from './components/auth/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { PrimeNgModule } from 'src/PrimeNgModule';
 import { HttpClientModule } from  '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { HttpClientModule } from  '@angular/common/http';
     ReactiveFormsModule,
     CommonModule,
     PrimeNgModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

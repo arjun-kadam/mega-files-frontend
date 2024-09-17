@@ -1,5 +1,9 @@
-<form>
+<form [formGroup]="signupForm">
   <div class="login-container">
+
+    <p-toast position="bottom-center" key="someError" [life]="3000"></p-toast>
+    <p-toast position="bottom-center" key="passFail" [life]="3000"></p-toast>
+    <p-toast key="success" [life]="3000"></p-toast>
     <h1>Sign Up To MegaFiles</h1>
 
     <span class="p-input-icon-left p-mb-4">
@@ -11,8 +15,10 @@
         pInputText
         class="w-full"
         placeholder="Enter Full Name"
+        formControlName="name"
         
       />
+      <small *ngIf="signupForm.get('name')?.invalid && signupForm.get('name')?.touched" id="username-help" class="p-error">Name is Required</small>
     </span>
     
     <span class="p-input-icon-left p-mb-4">
@@ -24,19 +30,22 @@
         pInputText
         class="w-full"
         placeholder="Enter Email"
+        formControlName="email"
         
       />
+      <small *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" id="username-help" class="p-error">Email is Required</small>
     </span>
 
     <span class="p-input-icon-left p-mb-4">
       <i class="pi pi-lock"></i>
       <input
-        id="email"
+        id="pass"
         style="width: 100%"
         type="password"
         pInputText
         class="w-full"
         placeholder="Password"
+        formControlName="password"
         
       />
     </span>
@@ -50,15 +59,18 @@
         pInputText
         class="w-full"
         placeholder="Confirm Password"
+        formControlName="confirm_password"
         
       />
     </span>
+    
 
     <button
       pButton
       type="button"
       label="Signup"
       class="ui-button-rounded ui-button-outlined"
+      (click)="onSubmitForm()"
     ></button>
     <span class="new-user">
       <p>Already Have Account? <a routerLink="/login">Login Now</a></p>
