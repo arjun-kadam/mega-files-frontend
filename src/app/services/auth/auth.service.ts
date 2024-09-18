@@ -19,4 +19,9 @@ export class AuthService {
   }
 
 
+  userLogin(loginRequest:any):Observable<any>{
+    return this.http.post(`${BASE_URL}/signin`,loginRequest)
+  }
+
+
 }

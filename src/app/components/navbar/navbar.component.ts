@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { StorageService } from 'src/app/services/auth/storage.service';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class NavbarComponent {
   items: any[];
 
 
-  constructor() {
+  constructor( public storageService:StorageService) {
     this.items = [
       {
         label: 'Home',

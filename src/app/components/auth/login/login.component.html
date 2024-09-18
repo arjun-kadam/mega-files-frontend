@@ -1,4 +1,9 @@
-<form>
+<form [formGroup]="loginForm">
+
+  <p-toast position="bottom-center" key="invalidForm" [life]="3000"></p-toast>
+  <p-toast position="bottom-center" key="wrongPass" [life]="3000"></p-toast>
+  <p-toast  key="admin" [life]="3000"></p-toast>
+  <p-toast  key="user" [life]="3000"></p-toast>
   <div class="login-container">
     <h1>Login To MegaFiles</h1>
 
@@ -11,20 +16,20 @@
         pInputText
         class="w-full"
         placeholder="Email"
-        
+        formControlName="email"
       />
     </span>
 
     <span class="p-input-icon-left p-mb-4">
       <i class="pi pi-lock"></i>
       <input
-        id="email"
+        id="password"
         style="width: 100%"
         type="password"
         pInputText
         class="w-full"
         placeholder="Password"
-       
+        formControlName="password"
       />
     </span>
 
@@ -33,6 +38,7 @@
       type="button"
       label="Login"
       class="ui-button-rounded ui-button-outlined"
+      (click)="login()"
     ></button>
     <span class="new-user">
       <p>New User? <a routerLink="/signup">Register Now</a></p>

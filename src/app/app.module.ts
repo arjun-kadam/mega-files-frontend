@@ -14,6 +14,10 @@ import { HomeComponent } from './components/home/home.component';
 import { PrimeNgModule } from 'src/PrimeNgModule';
 import { HttpClientModule } from  '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserHomeComponent } from './components/user/user-home/user-home.component';
+import { BlockedUserComponent } from './components/user/blocked-user/blocked-user.component';
+import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
+import { PageNotFoundComponent } from './components/common/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SignupComponent,
     NavbarComponent,
     HomeComponent,
+    UserHomeComponent,
+    BlockedUserComponent,
+    AdminDashboardComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
