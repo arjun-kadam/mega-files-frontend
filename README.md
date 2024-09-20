@@ -3,9 +3,9 @@
 - PrimeNG 16 (Component Library)
 
 ## Important:
-- Backend of this application is not deployed so you will not able access full functional app.
-- To test all functionalities please visit [BACKEND REPO](https://github.com/arjun-kadam/Maga-Files) 
-- Run Backend On Localhost 8080 (Need Java 21)
+- Backend service is deployed on Azure App Services.
+- [Swagger Documentation](https://megashare-spring.azurewebsites.net/swagger-ui/index.html)
+- Backend [Service Status](https://megafiles-status.netlify.app)
 
 ## Upcoming feature:
 - ### Admin Dashboard 
