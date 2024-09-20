@@ -10,6 +10,8 @@ import { PasswordModule } from 'primeng/password';
 import { RippleModule } from 'primeng/ripple';
 import { ToastModule } from 'primeng/toast';
 import { MessagesModule } from 'primeng/messages';
+import { TableModule } from 'primeng/table';
+
 
 @NgModule({
   exports: [
@@ -23,7 +25,8 @@ import { MessagesModule } from 'primeng/messages';
     PasswordModule,
     RippleModule,
     ToastModule,
-    MessagesModule
+    MessagesModule,
+    TableModule,
   ],
 })
 export class PrimeNgModule {}

@@ -7,6 +7,7 @@ import { UserHomeComponent } from './components/user/user-home/user-home.compone
 import { BlockedUserComponent } from './components/user/blocked-user/blocked-user.component';
 import { PageNotFoundComponent } from './components/common/page-not-found/page-not-found.component';
 import { adminGuard, userGuard } from './guards/auth.guard';
+import { UserFilesComponent } from './components/user/user-files/user-files.component';
 
 
 
@@ -15,6 +16,7 @@ const routes: Routes = [
  {path:'signup', component:SignupComponent},
  {path:'admin/dashboard', component:AdminDashboardComponent,canActivate:[adminGuard]},
  {path:'user/home', component:UserHomeComponent,canActivate:[userGuard]},
+ {path:'user/my-files', component:UserFilesComponent,canActivate:[userGuard]},
  {path:'blocked', component:BlockedUserComponent,canActivate:[userGuard]},
  {path:'**', component:PageNotFoundComponent},
 ];

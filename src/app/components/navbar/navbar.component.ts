@@ -21,6 +21,7 @@ export class NavbarComponent {
   }
 
   items: any[];
+  userItems: any[];
 
 
   constructor( public storageService:StorageService) {
@@ -47,5 +48,41 @@ export class NavbarComponent {
         routerLink: '/contact'
       }
     ];
+
+
+    this.userItems = [
+      {
+        label: 'Dashboard',
+        icon: 'pi pi-home',
+        routerLink: '/user/home'
+      },
+      {
+        label: 'Your Files',
+        icon: 'pi pi-file',
+        routerLink: ['user/my-files']
+      },
+      {
+        label: 'Global Files',
+        icon: 'pi pi-info-circle',
+        routerLink: '/about'
+      },
+      {
+        label: 'Upload File',
+        icon: 'pi pi-envelope',
+        routerLink: '/contact'
+      },
+      {
+        label: 'About',
+        icon: 'pi pi-info-circle',
+        routerLink: '/about'
+      },
+      {
+        label: 'Contact',
+        icon: 'pi pi-envelope',
+        routerLink: '/contact'
+      }
+    ];
   }
+
+  
 }

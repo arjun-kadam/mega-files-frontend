@@ -18,6 +18,8 @@ import { UserHomeComponent } from './components/user/user-home/user-home.compone
 import { BlockedUserComponent } from './components/user/blocked-user/blocked-user.component';
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
 import { PageNotFoundComponent } from './components/common/page-not-found/page-not-found.component';
+import { UserFilesComponent } from './components/user/user-files/user-files.component';
+import { FileSizePipe } from './pipes/file-size.pipe';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { PageNotFoundComponent } from './components/common/page-not-found/page-n
     BlockedUserComponent,
     AdminDashboardComponent,
     PageNotFoundComponent,
+    UserFilesComponent,
+    FileSizePipe,
   ],
   imports: [
     BrowserModule,

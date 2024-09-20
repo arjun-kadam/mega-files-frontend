@@ -21,7 +21,7 @@
   </p-menubar> 
   
   
-  <p-menubar [model]="items" styleClass="custom-menubar" *ngIf="this.storageService.isLoggedIn('ADMIN')">
+  <p-menubar [model]="userItems" styleClass="custom-menubar" *ngIf="this.storageService.isLoggedIn('USER')">
     <ng-template pTemplate="start">
       <a class="logo" href="/">
         <img src="assets/logo.png" alt="Logo" width="40" height="40" />
