@@ -57,18 +57,18 @@ export class NavbarComponent {
         routerLink: '/user/home'
       },
       {
-        label: 'Your Files',
+        label: 'My Files',
         icon: 'pi pi-file',
         routerLink: ['user/my-files']
       },
       {
         label: 'Global Files',
-        icon: 'pi pi-info-circle',
+        icon: 'pi pi-globe',
         routerLink: '/about'
       },
       {
         label: 'Upload File',
-        icon: 'pi pi-envelope',
+        icon: 'pi pi-upload',
         routerLink: '/contact'
       },
       {

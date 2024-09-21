@@ -11,6 +11,10 @@ import { RippleModule } from 'primeng/ripple';
 import { ToastModule } from 'primeng/toast';
 import { MessagesModule } from 'primeng/messages';
 import { TableModule } from 'primeng/table';
+import { TagModule } from 'primeng/tag';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { AvatarModule } from 'primeng/avatar';
+
 
 
 @NgModule({
@@ -27,6 +31,9 @@ import { TableModule } from 'primeng/table';
     ToastModule,
     MessagesModule,
     TableModule,
+    TagModule,
+    OverlayPanelModule,
+    AvatarModule
   ],
 })
 export class PrimeNgModule {}

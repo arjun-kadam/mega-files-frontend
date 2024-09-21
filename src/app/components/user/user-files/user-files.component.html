@@ -1,6 +1,9 @@
+<p-toast position="top-center" key="copied" [life]="3000"></p-toast>
 <div class="grid">
+
     <div class="col-12">
         <div class="card">
+            
             <p-table #dt1 
                      [value]="files" 
                      dataKey="id" 
@@ -16,23 +19,21 @@
                             <div class="flex justify-content-between align-items-center">Name</div>
                         </th>
                         <th style="min-width: 12rem">
-                            <div class="flex justify-content-between align-items-center">Country</div>
+                            <div class="flex justify-content-between align-items-center">Downloads</div>
                         </th>
                         <th style="min-width: 10rem">
-                            <div class="flex justify-content-between align-items-center">Date</div>
+                            <div class="flex justify-content-between align-items-center">Size</div>
                         </th>
                         <th style="min-width: 10rem">
-                            <div class="flex justify-content-between align-items-center">Balance</div>
+                            <div class="flex justify-content-between align-items-center">Upload At</div>
                         </th>
                         <th style="min-width: 12rem">
-                            <div class="flex justify-content-between align-items-center">Status</div>
+                            <div class="flex justify-content-between align-items-center">File Status</div>
                         </th>
                         <th style="min-width: 12rem">
-                            <div class="flex justify-content-between align-items-center">Activity</div>
+                            <div class="flex justify-content-between align-items-center">File URL</div>
                         </th>
-                        <th style="min-width: 8rem">
-                            <div class="flex justify-content-between align-items-center">Verified</div>
-                        </th>
+                        
                     </tr>
                 </ng-template>
 
@@ -41,13 +42,15 @@
                         <td>{{ file.filename }}</td>
                         <td><span class="image-text ml-2">{{ file.downloadCount }}</span></td>
                         <td><span class="image-text ml-2">{{ file.fileSize | fileSize }}</span></td>
-                        <td>{{ file.uploadTime | date: 'MM/dd/yyyy' }}</td>
-                        <td>{{ 20 | currency:'USD':'symbol' }}</td>
-                        <td><span [class]="'customer-badge status-' + file.fileStatus">{{ file.fileStatus }}</span></td>
-                        <td></td>
-                        <td class="text-center">
-                            <!-- verified logic -->
-                        </td>
+                        <td>{{ file.uploadTime | date: 'MM/dd/yyyy hh:mm a' }}</td>
+                        <td><p-tag *ngIf="file.fileStatus==='PUBLIC'" icon="pi pi-globe" severity="success" value="Public"></p-tag> <p-tag *ngIf="file.fileStatus==='PRIVATE'" icon="pi pi-lock" severity="danger" value="Private"></p-tag></td>
+                        <td><p-overlayPanel #op>
+                            <ng-template pTemplate="content">
+                                <input #copyInput pInputText value="{{file.shortUrl}}" readonly class="w-25rem" /> &nbsp;
+                                <span> <p-button [icon]="isCopied ? 'pi pi-check' : 'pi pi-copy'"  (click)="copyToClipboard(copyInput.value)" /></span>
+                            </ng-template>
+                        </p-overlayPanel>
+                        <p-button [disabled]="file.fileStatus==='PRIVATE'" (click)="op.toggle($event)" icon="pi pi-share-alt" label="Share"></p-button> </td>
                     </tr>
                 </ng-template>
 

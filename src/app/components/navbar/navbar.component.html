@@ -27,7 +27,16 @@
         <img src="assets/logo.png" alt="Logo" width="40" height="40" />
       </a>
     </ng-template>
+
+    <p-overlayPanel #op>
+      <ng-template pTemplate="content">  
+          <span> <p-button [icon]="'pi pi-copy'"/></span>
+      </ng-template>
+  </p-overlayPanel>
+    
     <ng-template pTemplate="end">
+      <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" styleClass="mr-2" shape="circle"></p-avatar>
+     &nbsp; &nbsp;
       <button routerLink="/login" pButton type="button" icon="pi pi-sign-out" label="Logout" (click)="storageService.logout()" class="ui-button-rounded ui-button-outlined"></button>
     </ng-template>
   </p-menubar>
