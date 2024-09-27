@@ -44,4 +44,53 @@ export class UserFilesComponent implements OnInit {
       console.error('Failed to copy text: ', err);
     });
   }
+
+  deleteFile(fileId:number){
+    this.userService.deleteFile(fileId).subscribe((res)=>{
+      this.message.add({
+        key: 'delete',
+        severity: 'success',
+        summary: 'File Delete',
+        detail: 'Your File Has Been Deleted Successfully',
+      })
+      this.ngOnInit();
+    },(err)=>{
+      this.message.add({
+        key: 'delete',
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Something Went Wrong !!!',
+      })
+      this.ngOnInit();
+    })
+  }
+
+
+  
+  changeFileAccess(status:string,fileId:number){
+
+    if(status==='PRIVATE'){
+      status='PUBLIC'
+    }else if(status==='PUBLIC'){
+      status='PRIVATE'
+    }
+    
+    this.userService.changeFileAccess(status,fileId).subscribe((res)=>{
+      this.message.add({
+        key: 'delete',
+        severity: 'success',
+        summary: 'Access Changed',
+        detail: 'Your File Access Changed Successfully',
+      })
+      this.ngOnInit();
+    },(err)=>{
+      this.message.add({
+        key: 'delete',
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Something Went Wrong !!!',
+      })
+      this.ngOnInit();
+    })
+  }
 }

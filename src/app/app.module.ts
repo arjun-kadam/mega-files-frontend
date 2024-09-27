@@ -20,6 +20,8 @@ import { AdminDashboardComponent } from './components/admin/admin-dashboard/admi
 import { PageNotFoundComponent } from './components/common/page-not-found/page-not-found.component';
 import { UserFilesComponent } from './components/user/user-files/user-files.component';
 import { FileSizePipe } from './pipes/file-size.pipe';
+import { UploadFilesComponent } from './components/user/upload-files/upload-files.component';
+import { GlobalFilesComponent } from './components/user/global-files/global-files.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { FileSizePipe } from './pipes/file-size.pipe';
     PageNotFoundComponent,
     UserFilesComponent,
     FileSizePipe,
+    UploadFilesComponent,
+    GlobalFilesComponent,
   ],
   imports: [
     BrowserModule,

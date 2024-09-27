@@ -1,0 +1,17 @@
+ .main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+.upload-container{
+    width: 700px;
+}
+
+.card{
+    align-content: center !important;
+}
+
+button{
+    margin-top: 20px;
+    width: 700px;
+}

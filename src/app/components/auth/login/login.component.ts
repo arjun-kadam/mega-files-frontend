@@ -49,6 +49,7 @@ export class LoginComponent {
     this.authService.userLogin(loginRequest).subscribe({
       next: (response) => {
         this.storageService.saveToken(response.token);
+        this.storageService.saveProfileUrl(response.profilePictureUrl);
         this.storageService.saveUser({
           roles: response.roles,
           status: response.status,

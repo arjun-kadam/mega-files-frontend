@@ -1,4 +1,6 @@
 <p-toast position="top-center" key="copied" [life]="3000"></p-toast>
+<p-toast position="top-center" key="delete" [life]="3000"></p-toast>
+
 <div class="grid">
 
     <div class="col-12">
@@ -6,8 +8,8 @@
             
             <p-table #dt1 
                      [value]="files" 
-                     dataKey="id" 
-                     [rows]="files.length" 
+                     [rows]="10"
+                     dataKey="id"  
                      [paginator]="files.length > 10" 
                      [rowsPerPageOptions]="[10, 20, 50]" 
                      [responsiveLayout]="'scroll'" 
@@ -33,6 +35,9 @@
                         <th style="min-width: 12rem">
                             <div class="flex justify-content-between align-items-center">File URL</div>
                         </th>
+                        <th style="min-width: 12rem">
+                            <div class="flex justify-content-between align-items-center">Action</div>
+                        </th>
                         
                     </tr>
                 </ng-template>
@@ -51,6 +56,15 @@
                             </ng-template>
                         </p-overlayPanel>
                         <p-button [disabled]="file.fileStatus==='PRIVATE'" (click)="op.toggle($event)" icon="pi pi-share-alt" label="Share"></p-button> </td>
+
+                        <td>
+                            <p-overlayPanel #edit>
+                                <ng-template pTemplate="content">
+                                    <p-button styleClass="delete-btn"  [icon]="file.fileStatus==='PRIVATE'?'pi pi-globe':'pi pi-lock'" [label]='file.fileStatus==="PRIVATE"?"Make Public":"Make Private"' [severity]='file.fileStatus==="PRIVATE"?"success":"warning"' (click)="changeFileAccess(file.fileStatus,file.fileId)"></p-button> &nbsp;
+                                    <p-button styleClass="delete-btn" (click)="deleteFile(file.fileId)" icon="pi pi-trash" label="Delete" severity="danger"></p-button>
+                                </ng-template>
+                            </p-overlayPanel>
+                            <p-button styleClass="delete-btn"  icon="pi pi-file-edit" label="Edit" severity="secondary" (click)="edit.toggle($event)"></p-button> </td>
                     </tr>
                 </ng-template>
 

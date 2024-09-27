@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { StorageService } from 'src/app/services/auth/storage.service';
 
 
@@ -13,7 +14,7 @@ export class NavbarComponent {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const navbar = document.querySelector('.custom-menubar');
-    if (window.scrollY > 50) { // When scrolled down 50px
+    if (window.scrollY > 50) {
       navbar?.classList.add('scrolled');
     } else {
       navbar?.classList.remove('scrolled');
@@ -24,7 +25,7 @@ export class NavbarComponent {
   userItems: any[];
 
 
-  constructor( public storageService:StorageService) {
+  constructor( public storageService:StorageService,private sanitizer: DomSanitizer) {
     this.items = [
       {
         label: 'Home',
@@ -64,12 +65,12 @@ export class NavbarComponent {
       {
         label: 'Global Files',
         icon: 'pi pi-globe',
-        routerLink: '/about'
+        routerLink: '/user/global-files'
       },
       {
         label: 'Upload File',
         icon: 'pi pi-upload',
-        routerLink: '/contact'
+        routerLink: 'user/upload-new'
       },
       {
         label: 'About',
@@ -84,5 +85,16 @@ export class NavbarComponent {
     ];
   }
 
-  
+  ngOnInit(){
+    this.getUserProfileUrl()
+  }
+
+  profileUrl!:any;
+
+  getUserProfileUrl() {
+    const unsafeUrl = this.storageService.getProfileUrl() ||'assets/avatar.png';
+    console.log("Retrieved URL from localStorage:", unsafeUrl); 
+    this.profileUrl = this.sanitizer.bypassSecurityTrustUrl(unsafeUrl);
+    console.log(this.profileUrl);
+  }
 }

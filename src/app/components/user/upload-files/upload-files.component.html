@@ -1,0 +1,32 @@
+<div class="main-container">
+  <p-toast key="fu"></p-toast>
+  <div class="upload-container">
+    <h1 align="center">Upload New File</h1>
+    <p-fileUpload
+      [showUploadButton]="false"
+      [multiple]="false"
+      (onSelect)="onSelect($event)"  
+    >
+      <ng-template pTemplate="content">
+        <ul *ngIf="uploadedFiles.length">
+          <li *ngFor="let file of uploadedFiles">
+            {{ file.name }} - {{ file.size }} bytes
+          </li>
+        </ul>
+      </ng-template>
+    </p-fileUpload>
+
+    <p-divider></p-divider>
+    <div class="card">
+      <h3>Select File Visibility</h3>
+      <p-selectButton
+        [options]="stateOptions"
+        [(ngModel)]="value"
+        optionLabel="label"
+        optionValue="value"
+      ></p-selectButton>
+
+      <button pButton pRipple label="Upload" (click)="onUpload()" class="p-button-success"></button>
+    </div>
+  </div>
+</div>

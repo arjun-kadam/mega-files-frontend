@@ -11,3 +11,5 @@ export const Role = {
   ADMIN: 'ADMIN',
   USER: 'USER'
 };
+
+export const ProfileURL='profile_url'

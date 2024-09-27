@@ -14,6 +14,8 @@ import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { AvatarModule } from 'primeng/avatar';
+import { FileUploadModule } from 'primeng/fileupload';
+import { SelectButtonModule } from 'primeng/selectbutton';
 
 
 
@@ -33,7 +35,9 @@ import { AvatarModule } from 'primeng/avatar';
     TableModule,
     TagModule,
     OverlayPanelModule,
-    AvatarModule
+    AvatarModule,
+    FileUploadModule,
+    SelectButtonModule
   ],
 })
 export class PrimeNgModule {}

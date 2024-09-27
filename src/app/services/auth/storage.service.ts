@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { TOKEN,USER} from 'src/app/constant/constants';
+import { TOKEN,USER,ProfileURL} from 'src/app/constant/constants';
 
 
 
 interface User {
   id: string;
   roles: string;
-  status: string;  // 'active' or 'blocked'
+  status: string; 
+  profileUrl:string; // 'active' or 'blocked'
 }
 
 @Injectable({
@@ -32,6 +33,13 @@ export class StorageService {
     saveUser(user: any): void {
         window.localStorage.setItem(USER, JSON.stringify(user));
     }
+
+    saveProfileUrl(url: string): void {
+      if (url.startsWith('"') && url.endsWith('"')) {
+        url = url.slice(1, -1);
+      }
+      window.localStorage.setItem(ProfileURL, url);
+    }
   
 
     getToken(): string | null {
@@ -40,7 +48,6 @@ export class StorageService {
   
    
     getUser(): any | null {
-      
       const userJson = window.localStorage.getItem(USER);
       return userJson ? JSON.parse(userJson) : null;
      
@@ -55,6 +62,15 @@ export class StorageService {
       const user = this.getUser();
       return user ? user.status : '';
     }
+
+    getProfileUrl(): string | null {
+      let url = this.getItem(ProfileURL);
+      if (url && url.startsWith('"') && url.endsWith('"')) {
+        url = url.slice(1, -1);
+      }
+      return url;
+    }
+    
     
   
     
@@ -78,5 +94,6 @@ export class StorageService {
     logout(): void {
       window.localStorage.removeItem(TOKEN);
       window.localStorage.removeItem(USER);
+      window.localStorage.removeItem(ProfileURL);
     }
 }

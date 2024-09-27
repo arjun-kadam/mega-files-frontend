@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { BASE_URL } from 'src/app/constant/api';
 
 
-const BASE_URL="https://megashare-spring.azurewebsites.net/api/home";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,15 +14,15 @@ export class PublicAccessService {
 
 
   getLatestFiles(): Observable<any>{
-   return this.http.get(`${BASE_URL}/latest-files`);
+   return this.http.get(`${BASE_URL}/home/latest-files`);
   }
 
   getPopularFiles():Observable<any>{
-    return this.http.get(`${BASE_URL}/popular-files`);
+    return this.http.get(`${BASE_URL}/home/popular-files`);
   }
 
   incrementDownloadCount(id:number):Observable<any>{
-    return this.http.get(`${BASE_URL}/download/${id}`,{})
+    return this.http.get(`${BASE_URL}/home/download/${id}`,{})
   }
 
 

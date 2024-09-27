@@ -1,0 +1,37 @@
+
+<div id="home-files" class="files-section">
+
+    <h2>Global Files</h2>
+<table class="files-table">
+
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>File Name</th>
+        <th>Uploaded By</th>
+        <th>Download</th>
+        <th>Report</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let file of globalFiles; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ file.filename }}</td>
+        <td class="uploaded-by" style="display: flex;">
+          <div >
+            <img src="{{file.profilePictureUrl}}" alt="Avatar" class="avatar" width="40px" height="40px" style="border-radius: 50%; margin-right: 10px;">
+          </div>
+          <div style="display: flex; justify-content: center; align-items: center;">
+            <span class="username" >{{file.username}}</span>
+          </div>
+        </td>
+        <td>
+          <button pButton type="button" icon="pi pi-download" label="Download" (click)="downloadFile(file.fileUrl,file.filename,file.fileId)"></button>
+        </td>
+        <td>
+          <button pButton type="button" icon="pi pi-exclamation-circle" label="Report" class="p-button-danger"></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
