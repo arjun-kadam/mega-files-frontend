@@ -16,6 +16,7 @@ import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { AvatarModule } from 'primeng/avatar';
 import { FileUploadModule } from 'primeng/fileupload';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { ChartModule } from 'primeng/chart';
 
 
 
@@ -37,7 +38,8 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     OverlayPanelModule,
     AvatarModule,
     FileUploadModule,
-    SelectButtonModule
+    SelectButtonModule,
+    ChartModule,
   ],
 })
 export class PrimeNgModule {}

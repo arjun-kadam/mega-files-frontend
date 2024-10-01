@@ -31,13 +31,13 @@ export class UploadFilesComponent {
       const fileToUpload = this.uploadedFiles[0]; 
       this.userService.uploadFile(fileToUpload, this.value).subscribe(
         (response: any) => {
-          this.messageService.add({ key: 'fu', severity: 'info', summary: 'Success', detail: 'File Uploaded Successfully' });
+          this.messageService.add({ key: 'fu', severity: 'success', summary: 'Success', detail: 'File Uploaded Successfully' });
           setTimeout(() => {
             this.router.navigateByUrl('user/my-files');
-          }, 3000);
+          }, 1000);
         },
         (error: any) => {
-          this.messageService.add({ key: 'fu', severity: 'error', summary: 'Error', detail: 'File Upload Failed' });
+          this.messageService.add({ key: 'fu', severity: 'error', summary: 'Error', detail: error.error?.errorMessage||'Something Went Wrong !!! ' });
         }
       );
     } else {

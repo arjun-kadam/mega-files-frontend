@@ -1,1 +1,197 @@
-<p>User Dashboard Works</p>
+<div class="flex justify-content-evenly flex-wrap">
+  <div
+    class="flip animation-duration-1000 animation-iteration-1 shadow-6 border-300 hover:border-700 border-1 border-round flex justify-content-between flex-wrap w-21rem h-6rem bg-white font-bold border-round m-2"
+  >
+    <div class="flex flex-column justify-content-around">
+      <div
+        class="flex align-items-center justify-content-center w-8rem h-1rem bg-whilte font-bold border-round m-2 text-600"
+      >
+        Total Files
+      </div>
+      <div
+        class="flex align-items-center justify-content-center w-8rem h-1rem bg-white text-green-500 font-bold border-round m-2"
+      >
+        {{ userFiles.length }}
+      </div>
+    </div>
+    <div
+      class="flip animation-duration-1000 animation-iteration-1 flex flex-column justify-content-center"
+      style="padding-right: 10px"
+    >
+      <div
+        class="flex align-items-center justify-content-center bg-blue-100 border-round w-3rem h-3rem border-round m-2"
+      >
+        <i class="pi pi-file-check text-blue-500" style="font-size: 2rem"></i>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="flip animation-duration-1000 animation-iteration-1 shadow-6 border-300 hover:border-700 border-1 border-round flex justify-content-between flex-wrap w-21rem h-6rem bg-white font-bold border-round m-2"
+  >
+    <div class="flex flex-column justify-content-around">
+      <div
+        class="flex align-items-center justify-content-center w-10rem h-1rem bg-whilte font-bold border-round m-2 text-600"
+      >
+        Total Downloads
+      </div>
+      <div
+        class="flex align-items-center justify-content-center w-8rem h-1rem bg-white font-bold text-green-500 border-round m-2"
+      >
+        {{ downloads }}
+      </div>
+    </div>
+    <div
+      class="flex flex-column justify-content-center"
+      style="padding-right: 10px"
+    >
+      <div
+        class="flex align-items-center justify-content-center bg-purple-100 border-round w-3rem h-3rem border-round m-2"
+      >
+        <i class="pi pi-download text-purple-500" style="font-size: 2rem"></i>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="flip animation-duration-1000 animation-iteration-1 shadow-6 border-300 hover:border-700 border-1 border-round flex justify-content-between flex-wrap w-21rem h-6rem bg-white font-bold border-round m-2"
+  >
+    <div class="flex flex-column justify-content-around">
+      <div
+        class="flex align-items-center justify-content-center w-10rem h-1rem bg-whilte font-bold border-round m-2 text-600"
+      >
+        Storage Consumed
+      </div>
+      <div
+        class="flex align-items-center justify-content-center w-8rem h-1rem bg-white text-green-500 font-bold border-round m-2"
+      >
+        {{ storage | number : "1.0-0" }}MB of 1GB
+      </div>
+    </div>
+    <div
+      class="flex flex-column justify-content-center"
+      style="padding-right: 10px"
+    >
+      <div
+        class="flex align-items-center justify-content-center bg-cyan-100 border-round w-3rem h-3rem border-round m-2"
+      >
+        <i class="pi pi-database text-cyan-500" style="font-size: 2rem"></i>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="flip animation-duration-1000 animation-iteration-1 shadow-6 border-300 hover:border-700 border-1 border-round flex justify-content-between flex-wrap w-21rem h-6rem bg-white font-bold border-round m-2"
+  >
+    <div class="flex flex-column justify-content-around">
+      <div
+        class="flex align-items-center justify-content-center w-8rem h-1rem bg-whilte font-bold border-round m-2 text-600"
+      >
+        Reports
+      </div>
+      <div
+        class="flex align-items-center justify-content-center w-8rem h-1rem bg-white text-green-500 font-bold border-round m-2"
+      >
+        {{ reports }}
+      </div>
+    </div>
+    <div
+      class="flex flex-column justify-content-center"
+      style="padding-right: 10px"
+    >
+      <div
+        class="flex align-items-center justify-content-center bg-red-100 border-round w-3rem h-3rem border-round m-2"
+      >
+        <i
+          class="pi pi-exclamation-triangle text-red-500"
+          style="font-size: 2rem"
+        ></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flex gap-6 m-5">
+  <div class="fadeinleft animation-duration-1000 animation-iteration-1 shadow-6 border-300 border-1 border-round flex-grow-1 flex-column align-items-center justify-content-center bg-primary font-bold">
+    <div class="flex align-items-center justify-content-center">
+      <h2>Recent Uploads ⌛</h2>
+    </div>
+    <p-table [value]="latestFiles" [rows]="5" responsiveLayout="scroll">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="fileName">
+            Name <p-sortIcon field="fileName"></p-sortIcon>
+          </th>
+          <th pSortableColumn="fileSize">
+            Size<p-sortIcon field="FileSize"></p-sortIcon>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-file>
+        <tr>
+          <td style="width: 35%; min-width: 7rem">{{ file.filename }}</td>
+          <td style="width: 35%; min-width: 8rem">
+            {{ file.uploadTime | date : "MM/dd/yyyy hh:mm a" }}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <div class="fadeinright animation-duration-1000 animation-iteration-1 shadow-6 border-300 border-1 border-round flex-grow-1 flex-column align-items-center justify-content-center bg-primary font-bold">
+    <div class="flex align-items-center justify-content-center">
+      <h2>Popular Files 🥳</h2>
+    </div>
+    <p-table [value]="popularFiles" [rows]="5" responsiveLayout="scroll">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Name</th>
+          <th>Downloads</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-file>
+        <tr>
+          <td style="width: 35%; min-width: 7rem">{{ file.filename }}</td>
+          <td style="width: 35%; min-width: 8rem">{{ file.downloadCount }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+
+
+<div class="flex gap-6 m-5">
+    <div class="fadeindown animation-duration-1000 animation-iteration-1 shadow-6 border-300 border-1 border-round flex-grow-1 flex-column align-items-center justify-content-center bg-primary font-bold">
+      <div class="flex align-items-center justify-content-center">
+        <h2>Private Files⌛</h2>
+      </div>
+      <p-table [value]="latestFiles" [rows]="5" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="fileName">
+              Name <p-sortIcon field="fileName"></p-sortIcon>
+            </th>
+            <th pSortableColumn="fileSize">
+              Size<p-sortIcon field="FileSize"></p-sortIcon>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-file>
+          <tr>
+            <td style="width: 35%; min-width: 7rem">{{ file.filename }}</td>
+            <td style="width: 35%; min-width: 8rem">
+              {{ file.uploadTime | date : "MM/dd/yyyy hh:mm a" }}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  
+    <div class="fadeindown animation-duration-1000 animation-iteration-1 shadow-6 border-300 border-1 border-round flex-grow-1 flex-column align-items-center justify-content-center bg-white font-bold">
+      <div class="flex align-items-center justify-content-center">
+        <h2>Stats 📊</h2>
+      </div>
+      <p-chart type="line" [data]="chartData" [options]="chartOptions"></p-chart>
+    </div>
+  </div>
+  
